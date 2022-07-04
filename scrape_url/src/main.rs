@@ -7,6 +7,5 @@ fn main() {
     download_file_to_markdown();
 
     // test function
-    println!("apply square: {}", apply(2, square));
-    println!("apply cube: {}", apply(2, cube));
+    test_func();
 }
