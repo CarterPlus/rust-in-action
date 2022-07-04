@@ -1,15 +1,12 @@
-use std::fs;
+mod quick_start;
+use crate::quick_start::download_to_md::download_file_to_markdown;
+use crate::quick_start::func_test::*;
 
 fn main() {
-    let url = "https://www.rust-lang.org/";
-    let output = "rust.md";
+    // test download file to markdown
+    download_file_to_markdown();
 
-    println!("Fetching url: {}", url);
-    let body: String = reqwest::blocking::get(url).unwrap().text().unwrap();
-
-    println!("Converting html to markdown...");
-    let md: String = html2md::parse_html(&body);
-
-    fs::write(output, md.as_bytes()).unwrap();
-    println!("Converted markdown has been saved in {}.", output);
+    // test function
+    println!("apply square: {}", apply(2, square));
+    println!("apply cube: {}", apply(2, cube));
 }
